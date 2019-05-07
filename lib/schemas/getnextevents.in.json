@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "home_id": {
+            "required": true,
+            "type": "string"
+        },
+        "event_id": {
+            "required": true,
+            "type": "string"
+        },
+        "size": {
+            "required": false,
+            "type": "integer"
+        }
+    }
+}

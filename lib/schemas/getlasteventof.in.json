@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "home_id": {
+            "required": true,
+            "type": "string"
+        },
+        "person_id": {
+            "required": true,
+            "type": "string"
+        },
+        "offset": {
+            "required": false,
+            "type": "integer"
+        }
+    }
+}

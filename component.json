@@ -1,0 +1,394 @@
+{
+    "title": "Netatmo",
+    "description": "<h3>Welcome to the Netatmo swagger on-line documentation !</h3>This site is a complement to the official <a href=\"https://dev.netatmo.com/\">Netatmo developper documentation</a> using swagger to bring interactivity and easy testing of requests with the \"try it\" button (authenticate with the authorization code 0Auth2 flow by clicking the authenticate button in the methods). You can find the source code for this site can be found in the project <a href=\"https://github.com/cbornet/netatmo-swagger-ui\">netatmo-swagger-ui</a>. You can also use the online <a href=\"./swagger.json\">swagger declaration</a> file to generate code or static documentation (see <a href=\"https://github.com/cbornet/netatmo-swagger-api\">netatmo-swagger-api</a>).",
+    "docsUrl": "https://dev.netatmo.com/dev/resources/technical/reference",
+    "url": "https://api.apis.guru/v2/specs/netatmo.net/1.1.1/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.netatmo.net/api",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "code_oauth": {
+                "label": "code_oauth",
+                "viewClass": "OAuthFieldView"
+            },
+            "password_oauth": {
+                "label": "password_oauth",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "token_uri": "https://api.netatmo.net/oauth2/token"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "addwebhook": {
+            "main": "./lib/actions/addwebhook.js",
+            "title": "Links a callback url to a user.\n",
+            "description": "Links a callback url to a user.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/addwebhook.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createnewschedule": {
+            "main": "./lib/actions/createnewschedule.js",
+            "title": "The method createnewschedule creates a new schedule stored in the backup list.",
+            "description": "The method createnewschedule creates a new schedule stored in the backup list.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createnewschedule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "devicelist": {
+            "main": "./lib/actions/devicelist.js",
+            "title": "The method devicelist returns the list of devices owned by the user, and their modules.\nA device is identified by its _id (which is its mac address) and each device may have one, several or no modules, also identified by an _id.\n",
+            "description": "The method devicelist returns the list of devices owned by the user, and their modules.\nA device is identified by its _id (which is its mac address) and each device may have one, several or no modules, also identified by an _id.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/devicelist.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "dropwebhook": {
+            "main": "./lib/actions/dropwebhook.js",
+            "title": "Dissociates a webhook from a user.\n",
+            "description": "Dissociates a webhook from a user.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/dropwebhook.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getcamerapicture": {
+            "main": "./lib/actions/getcamerapicture.js",
+            "title": "Returns the snapshot associated to an event.\n",
+            "description": "Returns the snapshot associated to an event.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getcamerapicture.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "geteventsuntil": {
+            "main": "./lib/actions/geteventsuntil.js",
+            "title": "Returns the snapshot associated to an event.\n",
+            "description": "Returns the snapshot associated to an event.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/geteventsuntil.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gethomecoachsdata": {
+            "main": "./lib/actions/gethomecoachsdata.js",
+            "title": "The method gethomecoachsdata Returns data from a user Healthy Home Coach Station (measures and device specific data).",
+            "description": "The method gethomecoachsdata Returns data from a user Healthy Home Coach Station (measures and device specific data).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gethomecoachsdata.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "gethomedata": {
+            "main": "./lib/actions/gethomedata.js",
+            "title": "Returns information about users homes and cameras.\n",
+            "description": "Returns information about users homes and cameras.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/gethomedata.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getlasteventof": {
+            "main": "./lib/actions/getlasteventof.js",
+            "title": "Returns most recent events.\n",
+            "description": "Returns most recent events.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getlasteventof.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getmeasure": {
+            "main": "./lib/actions/getmeasure.js",
+            "title": "The method getmeasure returns the measurements of a device or a module.\n",
+            "description": "The method getmeasure returns the measurements of a device or a module.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getmeasure.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getnextevents": {
+            "main": "./lib/actions/getnextevents.js",
+            "title": "Returns previous events.\n",
+            "description": "Returns previous events.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getnextevents.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getstationsdata": {
+            "main": "./lib/actions/getstationsdata.js",
+            "title": "The method getstationsdata Returns data from a user Weather Stations (measures and device specific data).",
+            "description": "The method getstationsdata Returns data from a user Weather Stations (measures and device specific data).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getstationsdata.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getthermostatsdata": {
+            "main": "./lib/actions/getthermostatsdata.js",
+            "title": "The method getthermostatsdata returns information about user's thermostats such as their last measurements.",
+            "description": "The method getthermostatsdata returns information about user's thermostats such as their last measurements.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getthermostatsdata.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getthermstate": {
+            "main": "./lib/actions/getthermstate.js",
+            "title": "The method getthermstate returns the last Thermostat measurements, its current weekly schedule, and, if present, its current manual temperature setpoint.",
+            "description": "The method getthermstate returns the last Thermostat measurements, its current weekly schedule, and, if present, its current manual temperature setpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getthermstate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getuser": {
+            "main": "./lib/actions/getuser.js",
+            "title": "The method getuser returns information about a user such as prefered language, prefered units, and list of devices.\n",
+            "description": "The method getuser returns information about a user such as prefered language, prefered units, and list of devices.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getuser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "partnerdevices": {
+            "main": "./lib/actions/partnerdevices.js",
+            "title": "The method partnerdevices returns the list of device_id to which your partner application has access to.",
+            "description": "The method partnerdevices returns the list of device_id to which your partner application has access to.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/partnerdevices.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "setpersonsaway": {
+            "main": "./lib/actions/setpersonsaway.js",
+            "title": "Sets a person as 'Away' or the Home as 'Empty'. The event will be added to the user's timeline.\n",
+            "description": "Sets a person as 'Away' or the Home as 'Empty'. The event will be added to the user's timeline.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/setpersonsaway.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "setthermpoint": {
+            "main": "./lib/actions/setthermpoint.js",
+            "title": "The method setthermpoint changes the Thermostat manual temperature setpoint.",
+            "description": "The method setthermpoint changes the Thermostat manual temperature setpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/setthermpoint.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "switchschedule": {
+            "main": "./lib/actions/switchschedule.js",
+            "title": "The method switchschedule switches the Thermostat's schedule to another existing schedule.",
+            "description": "The method switchschedule switches the Thermostat's schedule to another existing schedule.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/switchschedule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "syncschedule": {
+            "main": "./lib/actions/syncschedule.js",
+            "title": "The method syncschedule changes the Thermostat weekly schedule.",
+            "description": "The method syncschedule changes the Thermostat weekly schedule.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/syncschedule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

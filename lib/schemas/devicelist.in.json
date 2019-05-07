@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "app_type": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "app_thermostat",
+                "app_station"
+            ]
+        },
+        "device_id": {
+            "required": false,
+            "type": "string"
+        },
+        "get_favorites": {
+            "required": false,
+            "type": "boolean"
+        }
+    }
+}

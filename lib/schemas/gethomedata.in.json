@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "home_id": {
+            "required": false,
+            "type": "string"
+        },
+        "size": {
+            "required": false,
+            "type": "integer"
+        }
+    }
+}

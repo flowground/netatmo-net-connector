@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "device_id": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

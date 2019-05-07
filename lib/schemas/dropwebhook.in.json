@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "app_type": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

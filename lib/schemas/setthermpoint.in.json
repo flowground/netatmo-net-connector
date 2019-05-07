@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "device_id": {
+            "required": true,
+            "type": "string"
+        },
+        "module_id": {
+            "required": true,
+            "type": "string"
+        },
+        "setpoint_mode": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "program",
+                "away",
+                "hg",
+                "manual",
+                "off",
+                "max"
+            ]
+        },
+        "setpoint_endtime": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "setpoint_temp": {
+            "required": false,
+            "type": "number",
+            "format": "float"
+        }
+    }
+}
