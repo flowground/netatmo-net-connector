@@ -26,19 +26,24 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "code_oauth": {
+            "oauth2": {
                 "label": "code_oauth",
-                "viewClass": "OAuthFieldView"
-            },
-            "password_oauth": {
-                "label": "password_oauth",
                 "viewClass": "OAuthFieldView"
             }
         },
         "oauth2": {
             "client_id": "{{OAUTH_CLIENT_ID}}",
             "client_secret": "{{OAUTH_CLIENT_SECRET}}",
-            "token_uri": "https://api.netatmo.net/oauth2/token"
+            "auth_uri": "https://api.netatmo.net/oauth2/authorize",
+            "token_uri": "https://api.netatmo.net/oauth2/token",
+            "scopes": [
+                "access_camera",
+                "read_camera",
+                "read_station",
+                "read_thermostat",
+                "write_camera",
+                "write_thermostat"
+            ]
         }
     },
     "triggers": {
@@ -52,7 +57,7 @@
     "actions": {
         "addwebhook": {
             "main": "./lib/actions/addwebhook.js",
-            "title": "Links a callback url to a user.\n",
+            "title": "addwebhook",
             "description": "Links a callback url to a user.\n",
             "fields": {
                 "verbose": {
@@ -69,7 +74,7 @@
         },
         "createnewschedule": {
             "main": "./lib/actions/createnewschedule.js",
-            "title": "The method createnewschedule creates a new schedule stored in the backup list.",
+            "title": "createnewschedule",
             "description": "The method createnewschedule creates a new schedule stored in the backup list.",
             "fields": {
                 "verbose": {
@@ -86,7 +91,7 @@
         },
         "devicelist": {
             "main": "./lib/actions/devicelist.js",
-            "title": "The method devicelist returns the list of devices owned by the user, and their modules.\nA device is identified by its _id (which is its mac address) and each device may have one, several or no modules, also identified by an _id.\n",
+            "title": "devicelist",
             "description": "The method devicelist returns the list of devices owned by the user, and their modules.\nA device is identified by its _id (which is its mac address) and each device may have one, several or no modules, also identified by an _id.\n",
             "fields": {
                 "verbose": {
@@ -103,7 +108,7 @@
         },
         "dropwebhook": {
             "main": "./lib/actions/dropwebhook.js",
-            "title": "Dissociates a webhook from a user.\n",
+            "title": "dropwebhook",
             "description": "Dissociates a webhook from a user.\n",
             "fields": {
                 "verbose": {
@@ -120,7 +125,7 @@
         },
         "getcamerapicture": {
             "main": "./lib/actions/getcamerapicture.js",
-            "title": "Returns the snapshot associated to an event.\n",
+            "title": "getcamerapicture",
             "description": "Returns the snapshot associated to an event.\n",
             "fields": {
                 "verbose": {
@@ -137,7 +142,7 @@
         },
         "geteventsuntil": {
             "main": "./lib/actions/geteventsuntil.js",
-            "title": "Returns the snapshot associated to an event.\n",
+            "title": "geteventsuntil",
             "description": "Returns the snapshot associated to an event.\n",
             "fields": {
                 "verbose": {
@@ -154,7 +159,7 @@
         },
         "gethomecoachsdata": {
             "main": "./lib/actions/gethomecoachsdata.js",
-            "title": "The method gethomecoachsdata Returns data from a user Healthy Home Coach Station (measures and device specific data).",
+            "title": "gethomecoachsdata",
             "description": "The method gethomecoachsdata Returns data from a user Healthy Home Coach Station (measures and device specific data).",
             "fields": {
                 "verbose": {
@@ -171,7 +176,7 @@
         },
         "gethomedata": {
             "main": "./lib/actions/gethomedata.js",
-            "title": "Returns information about users homes and cameras.\n",
+            "title": "gethomedata",
             "description": "Returns information about users homes and cameras.\n",
             "fields": {
                 "verbose": {
@@ -188,7 +193,7 @@
         },
         "getlasteventof": {
             "main": "./lib/actions/getlasteventof.js",
-            "title": "Returns most recent events.\n",
+            "title": "getlasteventof",
             "description": "Returns most recent events.\n",
             "fields": {
                 "verbose": {
@@ -205,7 +210,7 @@
         },
         "getmeasure": {
             "main": "./lib/actions/getmeasure.js",
-            "title": "The method getmeasure returns the measurements of a device or a module.\n",
+            "title": "getmeasure",
             "description": "The method getmeasure returns the measurements of a device or a module.\n",
             "fields": {
                 "verbose": {
@@ -222,7 +227,7 @@
         },
         "getnextevents": {
             "main": "./lib/actions/getnextevents.js",
-            "title": "Returns previous events.\n",
+            "title": "getnextevents",
             "description": "Returns previous events.\n",
             "fields": {
                 "verbose": {
@@ -239,7 +244,7 @@
         },
         "getstationsdata": {
             "main": "./lib/actions/getstationsdata.js",
-            "title": "The method getstationsdata Returns data from a user Weather Stations (measures and device specific data).",
+            "title": "getstationsdata",
             "description": "The method getstationsdata Returns data from a user Weather Stations (measures and device specific data).",
             "fields": {
                 "verbose": {
@@ -256,7 +261,7 @@
         },
         "getthermostatsdata": {
             "main": "./lib/actions/getthermostatsdata.js",
-            "title": "The method getthermostatsdata returns information about user's thermostats such as their last measurements.",
+            "title": "getthermostatsdata",
             "description": "The method getthermostatsdata returns information about user's thermostats such as their last measurements.",
             "fields": {
                 "verbose": {
@@ -273,7 +278,7 @@
         },
         "getthermstate": {
             "main": "./lib/actions/getthermstate.js",
-            "title": "The method getthermstate returns the last Thermostat measurements, its current weekly schedule, and, if present, its current manual temperature setpoint.",
+            "title": "getthermstate",
             "description": "The method getthermstate returns the last Thermostat measurements, its current weekly schedule, and, if present, its current manual temperature setpoint.",
             "fields": {
                 "verbose": {
@@ -290,7 +295,7 @@
         },
         "getuser": {
             "main": "./lib/actions/getuser.js",
-            "title": "The method getuser returns information about a user such as prefered language, prefered units, and list of devices.\n",
+            "title": "getuser",
             "description": "The method getuser returns information about a user such as prefered language, prefered units, and list of devices.\n",
             "fields": {
                 "verbose": {
@@ -307,7 +312,7 @@
         },
         "partnerdevices": {
             "main": "./lib/actions/partnerdevices.js",
-            "title": "The method partnerdevices returns the list of device_id to which your partner application has access to.",
+            "title": "partnerdevices",
             "description": "The method partnerdevices returns the list of device_id to which your partner application has access to.",
             "fields": {
                 "verbose": {
@@ -324,7 +329,7 @@
         },
         "setpersonsaway": {
             "main": "./lib/actions/setpersonsaway.js",
-            "title": "Sets a person as 'Away' or the Home as 'Empty'. The event will be added to the user's timeline.\n",
+            "title": "setpersonsaway",
             "description": "Sets a person as 'Away' or the Home as 'Empty'. The event will be added to the user's timeline.\n",
             "fields": {
                 "verbose": {
@@ -341,7 +346,7 @@
         },
         "setthermpoint": {
             "main": "./lib/actions/setthermpoint.js",
-            "title": "The method setthermpoint changes the Thermostat manual temperature setpoint.",
+            "title": "setthermpoint",
             "description": "The method setthermpoint changes the Thermostat manual temperature setpoint.",
             "fields": {
                 "verbose": {
@@ -358,7 +363,7 @@
         },
         "switchschedule": {
             "main": "./lib/actions/switchschedule.js",
-            "title": "The method switchschedule switches the Thermostat's schedule to another existing schedule.",
+            "title": "switchschedule",
             "description": "The method switchschedule switches the Thermostat's schedule to another existing schedule.",
             "fields": {
                 "verbose": {
@@ -375,7 +380,7 @@
         },
         "syncschedule": {
             "main": "./lib/actions/syncschedule.js",
-            "title": "The method syncschedule changes the Thermostat weekly schedule.",
+            "title": "syncschedule",
             "description": "The method syncschedule changes the Thermostat weekly schedule.",
             "fields": {
                 "verbose": {
